@@ -4,9 +4,326 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G2KM"
-        mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <TabControl>
+        <TabItem Header="Xbox">
+            <StackPanel>
+                <WrapPanel>
+                    <WrapPanel>
+                        <Label>Left Stick</Label>
+                        <StackPanel>
+                            <WrapPanel>
+                                <Label>Up</Label>
+                                <TextBox MinWidth="50"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Down</Label>
+                                <TextBox MinWidth="50"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Left</Label>
+                                <TextBox MinWidth="50"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Right</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Click</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                        </StackPanel>
+                        <Label>Right Stick</Label>
+                        <StackPanel>
+                            <WrapPanel>
+                                <Label>Up</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Down</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Left</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Right</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Click</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                        </StackPanel>
+                        <Label>D-Pad</Label>
+                        <StackPanel>
+                            <WrapPanel>
+                                <Label>Up</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Down</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Left</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Right</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                        </StackPanel>
+                    </WrapPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Label>Home</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>Start</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>Back</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Label>X</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>Y</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>B</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>A</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Label>Left Shoulder</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>Right Shoulder</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>Left Trigger</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>Right Trigger</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                    </StackPanel>
+                </WrapPanel>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="PS3">
+            <StackPanel>
+                <WrapPanel>
+                    <WrapPanel>
+                        <Label>Left Stick</Label>
+                        <StackPanel>
+                            <WrapPanel>
+                                <Label>Up</Label>
+                                <TextBox MinWidth="50"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Down</Label>
+                                <TextBox HorizontalAlignment="Right" MinWidth="50"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Left</Label>
+                                <TextBox MinWidth="50"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Right</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Click</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                        </StackPanel>
+                        <Label>Right Stick</Label>
+                        <StackPanel>
+                            <WrapPanel>
+                                <Label>Up</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Down</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Left</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Right</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Click</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                        </StackPanel>
+                        <Label>D-Pad</Label>
+                        <StackPanel>
+                            <WrapPanel>
+                                <Label>Up</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Down</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Left</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label>Right</Label>
+                                <TextBox></TextBox>
+                            </WrapPanel>
+                        </StackPanel>
+                    </WrapPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Label>Home</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>Start</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>Select</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Label>Square</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>Triangle</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>Circle</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>Cross</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Label>L1</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>R1</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>L2</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Label>R2</Label>
+                            <TextBox></TextBox>
+                        </WrapPanel>
+                    </StackPanel>
+                </WrapPanel>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="KeyboardDemo">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="10">
+                    <TextBlock TextWrapping="Wrap"
+                       Text="Press an key on an attached keyboard, or enter text in the textbox below, to see details of the input device and the key(s) you pressed." />
+                    <TextBlock Text="Latest Keystroke" />
+                    <TextBlock Text="{Binding KeyboardEvent.Key, StringFormat='{}{0}'}" />
+                    <TextBlock Text="{Binding KeyboardEvent.VirtualKey}" />
+                    <TextBlock Text="{Binding KeyboardEvent.KeyPressState}" />
+                    <TextBlock Text="Device Details" />
+                    <TextBox IsReadOnly="True"
+                     Text="{Binding KeyboardEvent.Device.Name, Mode=OneWay}" />
+                    <TextBlock Text="{Binding KeyboardEvent.Device.Type, StringFormat='{}{0}'}" />
+                    <TextBlock Text="{Binding KeyboardEvent.Device.Description}" />
+                    <TextBlock Text="{Binding KeyboardCount, StringFormat='Device Count: {0}'}" />
+                    <TextBlock Text="Test Input"/>
+                    <TextBox />
+                    <CheckBox Name="ShouldHandle"
+                      Margin="3"
+                      Content="Handle events" />
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="MouseDemo">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="10">
+                    <TextBlock TextWrapping="Wrap"
+                       Text="Press an key on an attached keyboard, or enter text in the textbox below, to see details of the input device and the key(s) you pressed." />
+                    <TextBlock Text="Latest Keystroke" />
+                    <TextBlock Text="{Binding MouseEvent.Flags}" />
+                    <TextBlock Text="{Binding MouseEvent.LastX}" />
+                    <TextBlock Text="{Binding MouseEvent.LastY}" />
+                    <TextBlock Text="Device Details" />
+                    <TextBox IsReadOnly="True"
+                     Text="{Binding MouseEvent.Device.Name, Mode=OneWay}" />
+                    <TextBlock Text="{Binding MouseEvent.Device.Type, StringFormat='{}{0}'}" />
+                    <TextBlock Text="{Binding MouseEvent.Device.Description}" />
+                    <TextBlock Text="{Binding MouseCount, StringFormat='Device Count: {0}'}" />
+                    <TextBlock Text="Test Input"/>
+                    <TextBox />
+                    <CheckBox Name="ShouldHandle1"
+                      Margin="3"
+                      Content="Handle events" />
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="HidDemo">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="10">
+                    <TextBlock TextWrapping="Wrap"
+                       Text="Press an key on an attached keyboard, or enter text in the textbox below, to see details of the input device and the key(s) you pressed." />
+                    <TextBlock Text="Latest Keystroke" />
+                    <TextBlock Text="{Binding HidEvent.SizeHid}" />
+                    <TextBlock Text="{Binding HidEvent.Count}" />
+                    <TextBlock Text="{Binding HidEvent.RawData}" />
+                    <TextBlock Text="Device Details" />
+                    <TextBox IsReadOnly="True"
+                     Text="{Binding HidEvent.Device.Name, Mode=OneWay}" />
+                    <TextBlock Text="{Binding HidEvent.Device.Type, StringFormat='{}{0}'}" />
+                    <TextBlock Text="{Binding HidEvent.Device.Description}" />
+                    <TextBlock Text="{Binding HidCount, StringFormat='Device Count: {0}'}" />
+                    <TextBlock Text="Test Input"/>
+                    <TextBox />
+                    <CheckBox Name="ShouldHandle2"
+                      Margin="3"
+                      Content="Handle events" />
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+    </TabControl>
 </Window>
