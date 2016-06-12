@@ -30,7 +30,7 @@ namespace RawInput
 
         private IntPtr Hook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
         {
-            KeyboardDriver.HandleMessage(msg, wparam, lparam);
+            HandleMessage(msg, wparam, lparam);
             return IntPtr.Zero;
         }
 
@@ -52,7 +52,7 @@ namespace RawInput
 
         private void OnThreadFilterMessage(ref MSG msg, ref bool handled)
         {
-            handled = KeyboardDriver.HandleMessage(msg.message, msg.wParam, msg.lParam);
+            handled = HandleMessage(msg.message, msg.wParam, msg.lParam);
         }
     }
 }

@@ -310,7 +310,7 @@
                     <TextBlock Text="Latest Keystroke" />
                     <TextBlock Text="{Binding HidEvent.SizeHid}" />
                     <TextBlock Text="{Binding HidEvent.Count}" />
-                    <TextBlock Text="{Binding HidEvent.RawData}" />
+                    <TextBlock Text="{Binding HidEvent.RawData, StringFormat='{}{0}'}" />
                     <TextBlock Text="Device Details" />
                     <TextBox IsReadOnly="True"
                      Text="{Binding HidEvent.Device.Name, Mode=OneWay}" />

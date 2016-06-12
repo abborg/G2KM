@@ -14,6 +14,10 @@ namespace RawInput.Win32
             uint wRemoveMsg);
 
         [DllImport("user32", SetLastError = true)]
+        public static extern int GetRawInputData(IntPtr hRawInput, DataCommand command, byte[] b,
+    [In] [Out] ref int size, int cbSizeHeader);
+
+        [DllImport("user32", SetLastError = true)]
         public static extern int GetRawInputData(IntPtr hRawInput, DataCommand command, out InputData buffer,
             [In] [Out] ref int size, int cbSizeHeader);
 

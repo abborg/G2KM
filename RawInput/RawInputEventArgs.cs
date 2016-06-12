@@ -49,15 +49,19 @@ namespace RawInput
         public RawHidDevice Device { get; private set; }
         public uint SizeHid { get; private set; }
         public uint Count { get; private set; }
-        public byte RawData { get; private set; }
+        public byte[] RawData { get; private set; }
         public bool Handled { get; set; }
 
-        internal RawInputHidEventArgs(RawHidDevice device, uint sizeHid, uint count, byte rawData)
+        internal RawInputHidEventArgs(RawHidDevice device, uint sizeHid, uint count, byte[] rawData)
         {
             Device = device;
             SizeHid = sizeHid;
             Count = count;
-            RawData = rawData;
+            RawData = new byte[sizeHid*count];
+            for (int i = 0; i < sizeHid * count; i++)
+            {
+                RawData[i] = rawData[i];
+            }
         }
     }
 }

@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -43,14 +44,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RawDeviceType.cs" />
     <Compile Include="RawFormsInput.cs" />
-    <Compile Include="RawHid.cs" />
     <Compile Include="RawHidDevice.cs" />
     <Compile Include="RawInput.cs" />
     <Compile Include="RawInputCaptureMode.cs" />
     <Compile Include="RawInputEventArgs.cs" />
-    <Compile Include="RawKeyboard.cs" />
     <Compile Include="RawKeyboardDevice.cs" />
-    <Compile Include="RawMouse.cs" />
     <Compile Include="RawMouseDevice.cs" />
     <Compile Include="RawPresentationInput.cs" />
     <Compile Include="Win32\DataStructures.cs" />

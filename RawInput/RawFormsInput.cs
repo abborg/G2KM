@@ -47,7 +47,7 @@ namespace RawInput
 
             public bool PreFilterMessage(ref Message m)
             {
-                return _rawFormsInput.KeyboardDriver.HandleMessage(m.Msg, m.WParam, m.LParam);
+                return _rawFormsInput.HandleMessage(m.Msg, m.WParam, m.LParam);
             }
         }
 
@@ -63,7 +63,7 @@ namespace RawInput
 
             protected override void WndProc(ref Message message)
             {
-                _rawFormsInput.KeyboardDriver.HandleMessage(message.Msg, message.WParam, message.LParam);
+                _rawFormsInput.HandleMessage(message.Msg, message.WParam, message.LParam);
                 base.WndProc(ref message);
             }
         }

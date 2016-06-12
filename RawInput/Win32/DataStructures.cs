@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace RawInput.Win32
@@ -106,7 +108,7 @@ namespace RawInput.Win32
     internal struct InputData
     {
         public RawInputHeader header; // 64 bit header size is 24, 32 bit the header size is 16
-        public RawData data; // Creating the rest is a struct allows the header size to allign correctly for 32 or 64 bit
+        public RawData data; // Creating the rest is a struct allows the header size to align correctly for 32 or 64 bit
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -115,7 +117,7 @@ namespace RawInput.Win32
         public uint dwType; // Type of raw input (RIM_TYPEHID 2, RIM_TYPEKEYBOARD 1, RIM_TYPEMOUSE 0)
         public uint dwSize; // Size in bytes of the entire input packet of data. This includes RAWINPUT plus possible extra input reports in the RAWHID variable length array.
         public IntPtr hDevice; // a handle to the device generating the raw input data.
-        public IntPtr wParam; // RIM_INPUT 0 if input occurred while application was in the foreground else RIM_INPUTSINK 1 if it was not.
+        public bool wParam; // RIM_INPUT 0 if input occurred while application was in the foreground else RIM_INPUTSINK 1 if it was not.
 
         public override string ToString()
         {
@@ -125,16 +127,15 @@ namespace RawInput.Win32
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    internal struct Rawhid
+    internal unsafe struct Rawhid
     {
-        public uint dwSizHid;
+        public uint dwSizeHid;
         public uint dwCount;
-        public byte bRawData;
+        public fixed byte bRawData[20];
 
         public override string ToString()
         {
-            return string.Format("Rawhib\n dwSizeHid : {0}\n dwCount : {1}\n bRawData : {2}\n", dwSizHid, dwCount,
-                bRawData);
+            return string.Format("Rawhid\n dwSizeHid : {0}\n dwCount : {1}\n ", dwSizeHid, dwCount);
         }
     }
 

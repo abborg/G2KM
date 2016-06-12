@@ -73,7 +73,18 @@ namespace G2KM
             }
         }
 
-        private void OnKeyPressed(object sender, RawInputKeyboardEventArgs e)
+
+        public RawInputHidEventArgs HidEvent
+        {
+            get { return _hidEvent; }
+            set
+            {
+                _hidEvent = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private void OnKeyEvent(object sender, RawInputKeyboardEventArgs e)
         {
             KeyboardEvent = e;
             KeyboardCount = _rawInput.NumberOfKeyboards;
@@ -103,8 +114,12 @@ namespace G2KM
         private void StartWndProcHandler()
         {
             _rawInput = new RawPresentationInput(this, RawInputCaptureMode.Foreground);
-            _rawInput.KeyPressed += OnKeyPressed;
+            _rawInput.KeyPressed += OnKeyEvent;
+            _rawInput.MouseClicked += OnMouseEvent;
+            _rawInput.HidUsed += OnHidEvent;
             KeyboardCount = _rawInput.NumberOfKeyboards;
+            MouseCount = _rawInput.NumberOfMice;
+            HidCount = _rawInput.NumberOfHid;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
