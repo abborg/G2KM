@@ -143,8 +143,6 @@ namespace RawInput
             lock (_lock)
             {
                 _mouseList.Clear();
-                var rawMouseDevice = new RawMouseDevice("Global Mouse", RawDeviceType.Mouse, IntPtr.Zero, "Fake mouse.");
-                _mouseList.Add(rawMouseDevice.Handle, rawMouseDevice);
                 uint devices = 0u;
                 int size = Marshal.SizeOf(typeof(RawInputDeviceList));
                 if (Win32Methods.GetRawInputDeviceList(IntPtr.Zero, ref devices, (uint)size) != 0u)

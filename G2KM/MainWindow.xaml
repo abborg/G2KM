@@ -5,6 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G2KM"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Style x:Key="ActiveStyle" TargetType="Border">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="TextElement.Foreground" Value="White"/>
+        </Style>
+        <Style x:Key="NormalStyle" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="TextElement.Foreground" Value="Black"/>
+        </Style>
+    </Window.Resources>
     <TabControl>
         <TabItem Header="Xbox">
             <StackPanel>
@@ -273,7 +283,7 @@
                     <TextBlock Text="{Binding KeyboardCount, StringFormat='Device Count: {0}'}" />
                     <TextBlock Text="Test Input"/>
                     <TextBox />
-                    <CheckBox Name="ShouldHandle"
+                    <CheckBox Name="ShouldHandleKeyboard"
                       Margin="3"
                       Content="Handle events" />
                 </StackPanel>
@@ -282,21 +292,88 @@
         <TabItem Header="MouseDemo">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="10">
-                    <TextBlock TextWrapping="Wrap"
-                       Text="Press an key on an attached keyboard, or enter text in the textbox below, to see details of the input device and the key(s) you pressed." />
-                    <TextBlock Text="Latest Keystroke" />
-                    <TextBlock Text="{Binding MouseEvent.Flags}" />
-                    <TextBlock Text="{Binding MouseEvent.LastX}" />
-                    <TextBlock Text="{Binding MouseEvent.LastY}" />
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Grid Width="150" Height="150">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Grid.Row="0">
+                                <Label>Flags</Label>
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="0">
+                                <TextBlock HorizontalAlignment="Center" Text="{Binding MouseEvent.Flags}" />
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Grid.Row="1">
+                                <Label>LastX</Label>
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="1">
+                                <TextBlock HorizontalAlignment="Center" Text="{Binding MouseEvent.LastX}" />
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Grid.Row="2">
+                                <Label>LastY</Label>
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="2">
+                                <TextBlock HorizontalAlignment="Center" Text="{Binding MouseEvent.LastY}" />
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Grid.Row="3">
+                                <Label >ButtonFlags</Label>
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="3">
+                                <TextBlock HorizontalAlignment="Center" Text="{Binding MouseEvent.ButtonFlags}" />
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Grid.Row="4">
+                                <Label>ButtonData</Label>
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="4">
+                                <TextBlock HorizontalAlignment="Center" Text="{Binding MouseEvent.ButtonData}" />
+                            </Border>
+                        </Grid>
+                        <Border BorderBrush="Black" BorderThickness="1">
+                            <WrapPanel VerticalAlignment="Center">
+                                <Border Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">M1</TextBlock>
+                                </Border>
+                                <Border Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">M2</TextBlock>
+                                </Border>
+                                <Border Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">M3</TextBlock>
+                                </Border>
+                                <Border Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">M4</TextBlock>
+                                </Border>
+                                <Border Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">M5</TextBlock>
+                                </Border>
+                            </WrapPanel>
+                        </Border>
+                        <Border Height="150" Width="20" BorderBrush="Black" BorderThickness="1">
+                            <Canvas>
+                                <Line Canvas.Top="75" StrokeThickness="2" X1="0" X2="20" Y1="0" Y2="0">
+                                    <Line.Stroke>
+                                        <SolidColorBrush>
+                                            <SolidColorBrush.Color>Red</SolidColorBrush.Color>
+                                        </SolidColorBrush>
+                                    </Line.Stroke>
+                                </Line>
+                            </Canvas>
+                        </Border>
+                    </WrapPanel>
                     <TextBlock Text="Device Details" />
                     <TextBox IsReadOnly="True"
                      Text="{Binding MouseEvent.Device.Name, Mode=OneWay}" />
                     <TextBlock Text="{Binding MouseEvent.Device.Type, StringFormat='{}{0}'}" />
                     <TextBlock Text="{Binding MouseEvent.Device.Description}" />
                     <TextBlock Text="{Binding MouseCount, StringFormat='Device Count: {0}'}" />
-                    <TextBlock Text="Test Input"/>
-                    <TextBox />
-                    <CheckBox Name="ShouldHandle1"
+                    <CheckBox Name="ShouldHandleMouse"
                       Margin="3"
                       Content="Handle events" />
                 </StackPanel>
@@ -304,22 +381,114 @@
         </TabItem>
         <TabItem Header="HidDemo">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <StackPanel Margin="10">
-                    <TextBlock TextWrapping="Wrap"
-                       Text="Press an key on an attached keyboard, or enter text in the textbox below, to see details of the input device and the key(s) you pressed." />
-                    <TextBlock Text="Latest Keystroke" />
-                    <TextBlock Text="{Binding HidEvent.SizeHid}" />
-                    <TextBlock Text="{Binding HidEvent.Count}" />
-                    <TextBlock Text="{Binding HidEvent.RawData, StringFormat='{}{0}'}" />
+                <StackPanel>
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Border Margin="2" BorderBrush="Black" BorderThickness="1">
+                            <Canvas x:Name="lstickCanvas" Height="150" Width="150">
+                                <Ellipse x:Name="lstickdot" Height="5" Width="5" Fill="Red" Canvas.Left="73" Canvas.Top="73"/>
+                            </Canvas>
+                        </Border>
+                        <Border Margin="2" BorderBrush="Black" BorderThickness="1">
+                            <Canvas x:Name="rstickCanvas" Height="150" Width="150">
+                                <Ellipse x:Name="rstickdot"  Height="5" Width="5" Fill="Red" Canvas.Left="73" Canvas.Top="73"/>
+                            </Canvas>
+                        </Border>
+                        <Border Margin="2" BorderBrush="Black" BorderThickness="1">
+                            <Grid Height="150" Width="150">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Border x:Name="aButton" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1" Grid.Column="0" Grid.Row="0">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
+                                </Border>
+                                <Border x:Name="bButton" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="0">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">B</TextBlock>
+                                </Border>
+                                <Border x:Name="xButton" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">X</TextBlock>
+                                </Border>
+                                <Border x:Name="yButton" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1" Grid.Column="0" Grid.Row="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Y</TextBlock>
+                                </Border>
+                                <Border x:Name="startButton" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1" Grid.Column="2" Grid.Row="0">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Start</TextBlock>
+                                </Border>
+                                <Border x:Name="backButton" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1" Grid.Column="2" Grid.Row="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Back</TextBlock>
+                                </Border>
+                                <Border x:Name="homeButton" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1" Grid.Column="2" Grid.Row="2">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Home</TextBlock>
+                                </Border>
+                                <Border x:Name="lbButton" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1" Grid.Column="0" Grid.Row="2">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">LB</TextBlock>
+                                </Border>
+                                <Border x:Name="rbButton" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="2">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">RB</TextBlock>
+                                </Border>
+                                <Border x:Name="l3Button" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1" Grid.Column="3" Grid.Row="0">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">L3</TextBlock>
+                                </Border>
+                                <Border x:Name="r3Button" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1" Grid.Column="3" Grid.Row="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">R3</TextBlock>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </WrapPanel>
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Border Margin="2" BorderBrush="Black" BorderThickness="1">
+                            <Canvas Height="20" Width="150">
+                                <Line x:Name="ltLine" Height="20" X1="0" X2="0" Y1="0" Y2="20">
+                                    <Line.Stroke>
+                                        <SolidColorBrush>
+                                            <SolidColorBrush.Color>Red</SolidColorBrush.Color>
+                                        </SolidColorBrush>
+                                    </Line.Stroke>
+                                </Line>
+                            </Canvas>
+                        </Border>
+                        <Border Margin="2" BorderBrush="Black" BorderThickness="1">
+                            <Canvas Height="20" Width="150">
+                                <Line x:Name="rtLine" Height="20" X1="0" X2="0" Y1="0" Y2="20">
+                                    <Line.Stroke>
+                                        <SolidColorBrush>
+                                            <SolidColorBrush.Color>Red</SolidColorBrush.Color>
+                                        </SolidColorBrush>
+                                    </Line.Stroke>
+                                </Line>
+                            </Canvas>
+                        </Border>
+                        <Border Margin="2" BorderBrush="Black" BorderThickness="1">
+                            <WrapPanel HorizontalAlignment="Center" Height="20" Width="148">
+                                <Border x:Name="upDpad" Height="20" Width="37" BorderBrush="Black" BorderThickness="1" Grid.Column="3" Grid.Row="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Up</TextBlock>
+                                </Border>
+                                <Border x:Name="downDpad" Height="20" Width="37" BorderBrush="Black" BorderThickness="1" Grid.Column="3" Grid.Row="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Down</TextBlock>
+                                </Border>
+                                <Border x:Name="leftDpad" Height="20" Width="37" BorderBrush="Black" BorderThickness="1" Grid.Column="3" Grid.Row="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Left</TextBlock>
+                                </Border>
+                                <Border x:Name="rightDpad" Height="20" Width="37" BorderBrush="Black" BorderThickness="1" Grid.Column="3" Grid.Row="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Right</TextBlock>
+                                </Border>
+                            </WrapPanel>
+                        </Border>
+                    </WrapPanel>
                     <TextBlock Text="Device Details" />
                     <TextBox IsReadOnly="True"
                      Text="{Binding HidEvent.Device.Name, Mode=OneWay}" />
                     <TextBlock Text="{Binding HidEvent.Device.Type, StringFormat='{}{0}'}" />
                     <TextBlock Text="{Binding HidEvent.Device.Description}" />
                     <TextBlock Text="{Binding HidCount, StringFormat='Device Count: {0}'}" />
-                    <TextBlock Text="Test Input"/>
-                    <TextBox />
-                    <CheckBox Name="ShouldHandle2"
+                    <CheckBox Name="ShouldHandleHid"
                       Margin="3"
                       Content="Handle events" />
                 </StackPanel>
