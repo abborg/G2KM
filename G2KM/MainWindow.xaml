@@ -333,24 +333,24 @@
                                 <Label>ButtonData</Label>
                             </Border>
                             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="4">
-                                <TextBlock HorizontalAlignment="Center" Text="{Binding MouseEvent.ButtonData}" />
+                                <TextBlock HorizontalAlignment="Center" Text="{Binding MouseEvent.ButtonData, StringFormat='{}{0:}'}" />
                             </Border>
                         </Grid>
                         <Border BorderBrush="Black" BorderThickness="1">
                             <WrapPanel VerticalAlignment="Center">
-                                <Border Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
+                                <Border x:Name="m1Button" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">M1</TextBlock>
                                 </Border>
-                                <Border Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
+                                <Border x:Name="m2Button" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">M2</TextBlock>
                                 </Border>
-                                <Border Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
+                                <Border x:Name="m3Button" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">M3</TextBlock>
                                 </Border>
-                                <Border Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
+                                <Border x:Name="m4Button" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">M4</TextBlock>
                                 </Border>
-                                <Border Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
+                                <Border x:Name="m5Button" Width="30" Height="30" CornerRadius="100" BorderBrush="Black" BorderThickness="1">
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">M5</TextBlock>
                                 </Border>
                             </WrapPanel>
@@ -383,17 +383,17 @@
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel>
                     <WrapPanel HorizontalAlignment="Center">
-                        <Border Margin="2" BorderBrush="Black" BorderThickness="1">
+                        <Border BorderBrush="Black" BorderThickness="1">
                             <Canvas x:Name="lstickCanvas" Height="150" Width="150">
                                 <Ellipse x:Name="lstickdot" Height="5" Width="5" Fill="Red" Canvas.Left="73" Canvas.Top="73"/>
                             </Canvas>
                         </Border>
-                        <Border Margin="2" BorderBrush="Black" BorderThickness="1">
+                        <Border BorderBrush="Black" BorderThickness="1">
                             <Canvas x:Name="rstickCanvas" Height="150" Width="150">
                                 <Ellipse x:Name="rstickdot"  Height="5" Width="5" Fill="Red" Canvas.Left="73" Canvas.Top="73"/>
                             </Canvas>
                         </Border>
-                        <Border Margin="2" BorderBrush="Black" BorderThickness="1">
+                        <Border BorderBrush="Black" BorderThickness="1">
                             <Grid Height="150" Width="150">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition></ColumnDefinition>
@@ -443,7 +443,7 @@
                         </Border>
                     </WrapPanel>
                     <WrapPanel HorizontalAlignment="Center">
-                        <Border Margin="2" BorderBrush="Black" BorderThickness="1">
+                        <Border BorderBrush="Black" BorderThickness="1">
                             <Canvas Height="20" Width="150">
                                 <Line x:Name="ltLine" Height="20" X1="0" X2="0" Y1="0" Y2="20">
                                     <Line.Stroke>
@@ -454,7 +454,7 @@
                                 </Line>
                             </Canvas>
                         </Border>
-                        <Border Margin="2" BorderBrush="Black" BorderThickness="1">
+                        <Border BorderBrush="Black" BorderThickness="1">
                             <Canvas Height="20" Width="150">
                                 <Line x:Name="rtLine" Height="20" X1="0" X2="0" Y1="0" Y2="20">
                                     <Line.Stroke>
@@ -465,7 +465,7 @@
                                 </Line>
                             </Canvas>
                         </Border>
-                        <Border Margin="2" BorderBrush="Black" BorderThickness="1">
+                        <Border BorderBrush="Black" BorderThickness="1">
                             <WrapPanel HorizontalAlignment="Center" Height="20" Width="148">
                                 <Border x:Name="upDpad" Height="20" Width="37" BorderBrush="Black" BorderThickness="1" Grid.Column="3" Grid.Row="1">
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Up</TextBlock>

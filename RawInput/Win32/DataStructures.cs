@@ -148,7 +148,7 @@ namespace RawInput.Win32
         [FieldOffset(4)]
         public ushort usButtonFlags;
         [FieldOffset(6)]
-        public ushort usButtonData;
+        public short usButtonData;
         [FieldOffset(8)]
         public uint ulRawButtons;
         [FieldOffset(12)]

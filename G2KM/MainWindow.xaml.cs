@@ -23,8 +23,6 @@ namespace G2KM
         private RawInputMouseEventArgs _mouseEvent;
         private RawInputHidEventArgs _hidEvent;
 
-        private HidController controller;
-
         public MainWindow()
         {
             DataContext = this;
@@ -102,6 +100,13 @@ namespace G2KM
         {
             MouseEvent = e;
             MouseCount = _rawInput.NumberOfMice;
+            Style active = this.FindResource("ActiveStyle") as Style;
+            Style normal = this.FindResource("NormalStyle") as Style;
+            m1Button.Style = e.ButtonFlags == (ushort)MouseClickState.Mouse1Down ? active : normal;
+            m2Button.Style = e.ButtonFlags == (ushort)MouseClickState.Mouse2Down ? active : normal;
+            m3Button.Style = e.ButtonFlags == (ushort)MouseClickState.Mouse3Down ? active : normal;
+            m4Button.Style = e.ButtonFlags == (ushort)MouseClickState.Mouse4Down ? active : normal;
+            m5Button.Style = e.ButtonFlags == (ushort)MouseClickState.Mouse5Down ? active : normal;
             e.Handled = (ShouldHandleMouse.IsChecked == true);
         }
 

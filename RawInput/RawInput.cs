@@ -371,7 +371,7 @@ namespace RawInput
         {
             ushort usFlags = rawBuffer.data.mouse.usFlags;
             ushort usButtonFlags = rawBuffer.data.mouse.usButtonFlags;
-            ushort usButtonData = rawBuffer.data.mouse.usButtonData;
+            short sButtonData = rawBuffer.data.mouse.usButtonData;
             int lLastX = rawBuffer.data.mouse.lLastX;
             int lLastY = rawBuffer.data.mouse.lLastY;
 
@@ -388,7 +388,7 @@ namespace RawInput
             EventHandler<RawInputMouseEventArgs> mouseClicked = MouseClickedDelegate;
             if (mouseClicked != null)
             {
-                var rawInputEventArgs = new RawInputMouseEventArgs(device, usFlags, usButtonFlags, usButtonData, lLastX, lLastY);
+                var rawInputEventArgs = new RawInputMouseEventArgs(device, usFlags, usButtonFlags, sButtonData, lLastX, lLastY);
                 mouseClicked(this, rawInputEventArgs);
                 if (rawInputEventArgs.Handled)
                 {
